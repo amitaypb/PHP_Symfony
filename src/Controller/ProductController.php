@@ -124,8 +124,8 @@ class ProductController extends AbstractController
             
             $imageFile = $form['image']->getData();
             
-            // this condition is needed because the 'brochure' field is not required
-            // so the PDF file must be processed only when a file is uploaded
+            // this condition is needed because the 'Image' field is not required
+            // so the Image file must be processed only when an Image is selected.
             if ($imageFile) 
             {
 //                   $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -154,6 +154,7 @@ class ProductController extends AbstractController
                 // Encode the image string data into base64
                 $data = base64_encode($img);
                 //$data = base64_encode($imageFile);
+                //$product->setPhoto($img);
                 $product->setPhoto($data);
                 $product->setRawPhoto($data);
             }

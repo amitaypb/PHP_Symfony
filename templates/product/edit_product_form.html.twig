@@ -4,6 +4,13 @@
 
 {% block body %}
 {{ form_start(form) }}
+
+{% if form.vars.value.id > 0 %}
+	<h1>Edit Product {{ form.vars.value.name }}</h1>
+{% else %}
+	<h1>New Product</h1>
+{% endif %}
+
 <table>
 {# 	Only show the Id Field, if it is > 0. For new Products, don't show the Id.#}
 	<tr>
@@ -29,11 +36,15 @@
 	</tr>
 	
 	<tr>
-		{% if not form.vars.value.rawPhoto is empty %}
-		<td>
-			<img class="smallImage" src="{{ form.vars.value.base64Image }}"/>
-		</td>
-		{% endif %}
+		<td style="padding-top: 5px">
+		    {% if not form.vars.value.rawPhoto is empty %}
+				<img class="smallImage" src="{{ form.vars.value.base64Image }}"/>
+			{% else %}
+				<img class="smallImage"/>
+		    {% endif %}
+	    </td>
+	    
+	    <td>{{ form_widget(form.image) }}</td>
 	</tr>
 </table>
 

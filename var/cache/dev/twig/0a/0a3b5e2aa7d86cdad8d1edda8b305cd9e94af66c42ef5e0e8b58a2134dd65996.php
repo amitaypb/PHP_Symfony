@@ -186,30 +186,38 @@ class __TwigTemplate_edc356fcbbee5047448d520994d4525e2ac5c2e663370ad558581b885c3
 \t\t}
 \t\t
 \t\t.smallImage {
-\t\t\tmax-height: 100px;
-\t\t\tmax-width: 100px
+\t\t\theight: 100px;
+\t\t\twidth: 100px;
+\t\t\tborder: 2px solid #021a40;\t/* Enclose Image in border */
 \t\t}
 \t\t
 \t\t.labelStyle {
 \t\t\tfont-weight: bold;
 \t\t}
+\t\t
+\t\t.priceStyle {
+\t\t\tfont-weight: bold;
+\t\t\tfont-size: 16px;
+\t\t\twidth: 100px; 
+\t\t\ttext-align: center;
+\t\t}
       </style>
       
         ";
-        // line 148
+        // line 156
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 149
+        // line 157
         echo "    </head>
     <body>
         ";
-        // line 151
+        // line 159
         $this->displayBlock('body', $context, $blocks);
-        // line 152
+        // line 160
         echo "        
         ";
-        // line 153
+        // line 161
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 154
+        // line 162
         echo "    </body>
 </html>
 ";
@@ -240,7 +248,7 @@ class __TwigTemplate_edc356fcbbee5047448d520994d4525e2ac5c2e663370ad558581b885c3
 
     }
 
-    // line 148
+    // line 156
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -258,7 +266,7 @@ class __TwigTemplate_edc356fcbbee5047448d520994d4525e2ac5c2e663370ad558581b885c3
 
     }
 
-    // line 151
+    // line 159
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -276,7 +284,7 @@ class __TwigTemplate_edc356fcbbee5047448d520994d4525e2ac5c2e663370ad558581b885c3
 
     }
 
-    // line 153
+    // line 161
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -301,7 +309,7 @@ class __TwigTemplate_edc356fcbbee5047448d520994d4525e2ac5c2e663370ad558581b885c3
 
     public function getDebugInfo()
     {
-        return array (  280 => 153,  262 => 151,  244 => 148,  225 => 5,  213 => 154,  211 => 153,  208 => 152,  206 => 151,  202 => 149,  200 => 148,  58 => 8,  53 => 5,  47 => 1,);
+        return array (  288 => 161,  270 => 159,  252 => 156,  233 => 5,  221 => 162,  219 => 161,  216 => 160,  214 => 159,  210 => 157,  208 => 156,  58 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -444,12 +452,20 @@ class __TwigTemplate_edc356fcbbee5047448d520994d4525e2ac5c2e663370ad558581b885c3
 \t\t}
 \t\t
 \t\t.smallImage {
-\t\t\tmax-height: 100px;
-\t\t\tmax-width: 100px
+\t\t\theight: 100px;
+\t\t\twidth: 100px;
+\t\t\tborder: 2px solid #021a40;\t/* Enclose Image in border */
 \t\t}
 \t\t
 \t\t.labelStyle {
 \t\t\tfont-weight: bold;
+\t\t}
+\t\t
+\t\t.priceStyle {
+\t\t\tfont-weight: bold;
+\t\t\tfont-size: 16px;
+\t\t\twidth: 100px; 
+\t\t\ttext-align: center;
 \t\t}
       </style>
       

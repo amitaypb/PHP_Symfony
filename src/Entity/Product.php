@@ -62,6 +62,43 @@ class Product
         
         return $this;
     }
+    
+    //TODO: Move all of the Calculations to the Business Logic Layer (Manager or Service).
+    public function getPriceFormatted()
+    {
+        if($this->price % 1 == 0)
+        {
+            return "$ " . $this->price . ".00";
+        }
+        
+        return "$ " . $this->price;
+    }
+    
+    public function getIntegerPart(int $price)
+    {
+        $str = strval($price);
+        $dec_pos = strrpos($str, '.');
+        
+        if($dec_pos == true)
+        {
+            return substr($str, 0, $dec_pos);
+        }
+        
+        return $price;
+    }
+    
+    public function getDecimals(int $price)
+    {
+        $str = strval($price);
+        $dec_pos = strrpos($str, '.');
+        
+        if($dec_pos == true)
+        {
+            return substr($str, $dec_pos + 1);
+        }
+        
+        return "00";
+    }
 
     /**
      * @ORM\Column(type="text")
@@ -142,7 +179,7 @@ class Product
     
     private $base64Image;
     
-    public function getBase64Image()
+    public function getbase64Image()
     {
         if($this->base64Image == null)
         {

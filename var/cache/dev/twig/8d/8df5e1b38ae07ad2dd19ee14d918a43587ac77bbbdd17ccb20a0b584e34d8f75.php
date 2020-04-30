@@ -67,83 +67,107 @@ class __TwigTemplate_e40e4a44a96449590841fc37e86cc5356566d08ac20e990835cd2c22bff
         // line 6
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 6, $this->source); })()), 'form_start');
         echo "
+
+";
+        // line 8
+        if (1 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 8, $this->source); })()), "vars", [], "any", false, false, false, 8), "value", [], "any", false, false, false, 8), "id", [], "any", false, false, false, 8), 0)) {
+            // line 9
+            echo "\t<h1>Edit Product ";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 9, $this->source); })()), "vars", [], "any", false, false, false, 9), "value", [], "any", false, false, false, 9), "name", [], "any", false, false, false, 9), "html", null, true);
+            echo "</h1>
+";
+        } else {
+            // line 11
+            echo "\t<h1>New Product</h1>
+";
+        }
+        // line 13
+        echo "
 <table>
 ";
-        // line 9
+        // line 16
         echo "\t<tr>
 \t\t";
-        // line 10
-        if (1 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), "vars", [], "any", false, false, false, 10), "value", [], "any", false, false, false, 10), "id", [], "any", false, false, false, 10), 0)) {
-            // line 11
+        // line 17
+        if (1 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 17, $this->source); })()), "vars", [], "any", false, false, false, 17), "value", [], "any", false, false, false, 17), "id", [], "any", false, false, false, 17), 0)) {
+            // line 18
             echo "\t\t\t<td><label class=\"labelStyle\">Id:</label></td>
 \t\t\t<td>";
-            // line 12
-            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 12, $this->source); })()), "id", [], "any", false, false, false, 12), 'widget');
+            // line 19
+            echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 19, $this->source); })()), "id", [], "any", false, false, false, 19), 'widget');
             echo "</td>
 \t    ";
         }
-        // line 14
+        // line 21
         echo "\t</tr>
 \t
 \t<tr>
 \t\t<td><label class=\"labelStyle\">Name:</label></td>
 \t\t<td>";
-        // line 18
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 18, $this->source); })()), "name", [], "any", false, false, false, 18), 'widget');
+        // line 25
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 25, $this->source); })()), "name", [], "any", false, false, false, 25), 'widget');
         echo "</td>
 \t</tr>
 \t
 \t<tr>
 \t\t<td><label class=\"labelStyle\">Price:</label></td>
 \t\t<td>";
-        // line 23
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 23, $this->source); })()), "price", [], "any", false, false, false, 23), 'widget');
+        // line 30
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 30, $this->source); })()), "price", [], "any", false, false, false, 30), 'widget');
         echo "</td>
 \t</tr>
 \t
 \t<tr>
 \t\t<td><label class=\"labelStyle\">Description:</label></td>
 \t\t<td>";
-        // line 28
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 28, $this->source); })()), "description", [], "any", false, false, false, 28), 'widget');
+        // line 35
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 35, $this->source); })()), "description", [], "any", false, false, false, 35), 'widget');
         echo "</td>
 \t</tr>
 \t
 \t<tr>
-\t\t";
-        // line 32
-        if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 32, $this->source); })()), "vars", [], "any", false, false, false, 32), "value", [], "any", false, false, false, 32), "rawPhoto", [], "any", false, false, false, 32))) {
-            // line 33
-            echo "\t\t<td>
-\t\t\t<img class=\"smallImage\" src=\"";
-            // line 34
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 34, $this->source); })()), "vars", [], "any", false, false, false, 34), "value", [], "any", false, false, false, 34), "base64Image", [], "any", false, false, false, 34), "html", null, true);
+\t\t<td style=\"padding-top: 5px\">
+\t\t    ";
+        // line 40
+        if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 40, $this->source); })()), "vars", [], "any", false, false, false, 40), "value", [], "any", false, false, false, 40), "rawPhoto", [], "any", false, false, false, 40))) {
+            // line 41
+            echo "\t\t\t\t<img class=\"smallImage\" src=\"";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 41, $this->source); })()), "vars", [], "any", false, false, false, 41), "value", [], "any", false, false, false, 41), "base64Image", [], "any", false, false, false, 41), "html", null, true);
             echo "\"/>
-\t\t</td>
-\t\t";
+\t\t\t";
+        } else {
+            // line 43
+            echo "\t\t\t\t<img class=\"smallImage\"/>
+\t\t    ";
         }
-        // line 37
-        echo "\t</tr>
+        // line 45
+        echo "\t    </td>
+\t    
+\t    <td>";
+        // line 47
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 47, $this->source); })()), "image", [], "any", false, false, false, 47), 'widget');
+        echo "</td>
+\t</tr>
 </table>
 
 <br/>
 
 ";
-        // line 45
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 45, $this->source); })()), "save", [], "any", false, false, false, 45), 'widget', ["label" => "Save"]);
+        // line 56
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 56, $this->source); })()), "save", [], "any", false, false, false, 56), 'widget', ["label" => "Save"]);
         echo "
 ";
-        // line 47
+        // line 58
         echo "
 ";
-        // line 49
+        // line 60
         echo "<a href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("products_show");
         echo "\" class=\"button\">Cancel</a>
 
 ";
-        // line 51
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 51, $this->source); })()), 'form_end');
+        // line 62
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 62, $this->source); })()), 'form_end');
         echo "
 
 ";
@@ -167,7 +191,7 @@ class __TwigTemplate_e40e4a44a96449590841fc37e86cc5356566d08ac20e990835cd2c22bff
 
     public function getDebugInfo()
     {
-        return array (  146 => 51,  140 => 49,  137 => 47,  133 => 45,  126 => 37,  120 => 34,  117 => 33,  115 => 32,  108 => 28,  100 => 23,  92 => 18,  86 => 14,  81 => 12,  78 => 11,  76 => 10,  73 => 9,  68 => 6,  58 => 5,  35 => 2,);
+        return array (  170 => 62,  164 => 60,  161 => 58,  157 => 56,  148 => 47,  144 => 45,  140 => 43,  134 => 41,  132 => 40,  124 => 35,  116 => 30,  108 => 25,  102 => 21,  97 => 19,  94 => 18,  92 => 17,  89 => 16,  85 => 13,  81 => 11,  75 => 9,  73 => 8,  68 => 6,  58 => 5,  35 => 2,);
     }
 
     public function getSourceContext()
@@ -178,6 +202,13 @@ class __TwigTemplate_e40e4a44a96449590841fc37e86cc5356566d08ac20e990835cd2c22bff
 
 {% block body %}
 {{ form_start(form) }}
+
+{% if form.vars.value.id > 0 %}
+\t<h1>Edit Product {{ form.vars.value.name }}</h1>
+{% else %}
+\t<h1>New Product</h1>
+{% endif %}
+
 <table>
 {# \tOnly show the Id Field, if it is > 0. For new Products, don't show the Id.#}
 \t<tr>
@@ -203,11 +234,15 @@ class __TwigTemplate_e40e4a44a96449590841fc37e86cc5356566d08ac20e990835cd2c22bff
 \t</tr>
 \t
 \t<tr>
-\t\t{% if not form.vars.value.rawPhoto is empty %}
-\t\t<td>
-\t\t\t<img class=\"smallImage\" src=\"{{ form.vars.value.base64Image }}\"/>
-\t\t</td>
-\t\t{% endif %}
+\t\t<td style=\"padding-top: 5px\">
+\t\t    {% if not form.vars.value.rawPhoto is empty %}
+\t\t\t\t<img class=\"smallImage\" src=\"{{ form.vars.value.base64Image }}\"/>
+\t\t\t{% else %}
+\t\t\t\t<img class=\"smallImage\"/>
+\t\t    {% endif %}
+\t    </td>
+\t    
+\t    <td>{{ form_widget(form.image) }}</td>
 \t</tr>
 </table>
 
