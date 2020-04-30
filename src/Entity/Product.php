@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
@@ -77,6 +78,78 @@ class Product
         $this->description = $description;
 
         return $this;
+    }
+    
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $imageFilename;
+    
+    public function getImageFilename()
+    {
+        return $this->imageFilename;
+    }
+    
+    public function setImageFilename($imageFilename)
+    {
+        $this->imageFilename = $imageFilename;
+        
+        return $this;
+    }
+    
+    /**
+     * @ORM\Column(name="photo", type="blob", nullable=true)
+     */
+    private $photo;
+    
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+    
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+        
+        //Clear the RawPhoto, so it gets refreshed.
+        //$this->rawPhoto = null;
+        
+        return $this;
+    }
+    
+    /**
+     * @ORM\Column(name="rawPhoto", type="text", nullable=true)
+     */
+    private $rawPhoto;
+    
+    public function getRawPhoto()
+    {
+//         if($this->rawPhoto == null)
+//         {
+//             //$this->rawPhoto = "data:image/png;base64," . base64_encode(stream_get_contents($this->getPhoto()));
+//             $this->rawPhoto = "data:image/png;base64," . $this->getPhoto();
+//         }
+        
+        return $this->rawPhoto;
+    }
+    
+    public function setRawPhoto($rawPhoto)
+    {
+        $this->rawPhoto = $rawPhoto;
+        
+        return $this;
+    }
+    
+    private $base64Image;
+    
+    public function getBase64Image()
+    {
+        if($this->base64Image == null)
+        {
+            $this->base64Image = "data:image/png;base64," . $this->getRawPhoto();
+        }
+    
+        return $this->base64Image;
     }
     
     // ... getter and setter methods

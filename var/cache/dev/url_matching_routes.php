@@ -39,8 +39,12 @@ return [
                     .'|([^/]++)(*:219)'
                     .'|edit/(\\d+)(*:237)'
                     .'|save(?'
-                        .'|\\}(*:254)'
-                        .'|/(\\d+)(*:268)'
+                        .'|(*:252)'
+                        .'|_product_(?'
+                            .'|default(*:279)'
+                            .'|ajax\\}(*:293)'
+                        .')'
+                        .'|/(\\d+)(*:308)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -56,8 +60,10 @@ return [
         191 => [[['_route' => 'app_lucky_print_number', '_controller' => 'App\\Controller\\LuckyController::print_number'], ['number'], null, null, false, true, null]],
         219 => [[['_route' => 'product_show', '_controller' => 'App\\Controller\\ProductController::show'], ['id'], null, null, false, true, null]],
         237 => [[['_route' => 'product_edit', '_controller' => 'App\\Controller\\ProductController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        254 => [[['_route' => 'product_save', '_controller' => 'App\\Controller\\ProductController::save'], [], null, null, false, false, null]],
-        268 => [
+        252 => [[['_route' => 'product_save', '_controller' => 'App\\Controller\\ProductController::save'], [], null, null, false, false, null]],
+        279 => [[['_route' => 'save_product_default', '_controller' => 'App\\Controller\\ProductController::save_product_default'], [], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        293 => [[['_route' => 'save_product_ajax', '_controller' => 'App\\Controller\\ProductController::save_product_ajax'], [], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        308 => [
             [['_route' => 'save_product', '_controller' => 'App\\Controller\\ProductController::SaveProduct'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

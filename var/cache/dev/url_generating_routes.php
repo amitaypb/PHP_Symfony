@@ -20,7 +20,9 @@ return [
     'product_show' => [['id'], ['_controller' => 'App\\Controller\\ProductController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/product']], [], []],
     'products_show' => [[], ['_controller' => 'App\\Controller\\ProductController::showProducts'], [], [['text', '/products']], [], []],
     'product_edit' => [['id'], ['_controller' => 'App\\Controller\\ProductController::edit'], ['id' => '\\d+'], [['variable', '/', '\\d+', 'id', true], ['text', '/product/edit']], [], []],
-    'product_save' => [[], ['_controller' => 'App\\Controller\\ProductController::save'], [], [['text', '/product/save}']], [], []],
+    'product_save' => [[], ['_controller' => 'App\\Controller\\ProductController::save'], [], [['text', '/product/save']], [], []],
+    'save_product_default' => [[], ['_controller' => 'App\\Controller\\ProductController::save_product_default'], [], [['text', '/product/save_product_default']], [], []],
+    'save_product_ajax' => [[], ['_controller' => 'App\\Controller\\ProductController::save_product_ajax'], [], [['text', '/product/save_product_ajax}']], [], []],
     'product_create' => [[], ['_controller' => 'App\\Controller\\ProductController::new'], [], [['text', '/product']], [], []],
     'save_product' => [['id'], ['_controller' => 'App\\Controller\\ProductController::SaveProduct'], ['id' => '\\d+'], [['variable', '/', '\\d+', 'id', true], ['text', '/product/save']], [], []],
 ];

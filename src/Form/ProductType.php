@@ -7,9 +7,11 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 /**
  * Defines the form used to create and manipulate Products.
@@ -36,6 +38,34 @@ class ProductType extends AbstractType
         ->add('name', TextType::class)
         ->add('price', TextType::class)
         ->add('description', TextType::class)
+        //->add('base64Image', TextType::class)
+        ->add('image', FileType::class, [
+            'label' => 'Image',
+            
+            // unmapped means that this field is not associated to any entity property
+            'mapped' => false,
+            
+            // make it optional so you don't have to re-upload the Image
+            // every time you edit the Product details
+            'required' => false,
+            
+            // unmapped fields can't define their validation using annotations
+            // in the associated entity, so you can use the PHP constraint classes
+            'constraints' => [
+                new File([
+                    'maxSize' => '1024k',
+                    'mimeTypes' => [
+                        //'application/pdf',
+                        //'application/x-pdf',
+                        'image/png', 
+                        'image/jpg', 
+                        'image/jpeg'
+                    ],
+                    'mimeTypesMessage' => 'Please upload a valid Image. Maximum File Size is 1 Mb.',
+                ])
+            ],
+        ])
+        
         ->add('save', SubmitType::class, [
             'attr' => ['class' => 'button']])
 //         ->add('cancel', SubmitType::class, [
