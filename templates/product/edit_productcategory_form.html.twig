@@ -1,0 +1,38 @@
+{# templates/task/new.html.twig #}
+{% extends 'base.html.twig' %}
+{# {{ form(form) }}#}
+
+{% block body %}
+{{ form_start(form) }}
+
+{% if form.vars.value.id > 0 %}
+	<h1>Edit Product Category {{ form.vars.value.name }}</h1>
+{% else %}
+	<h1>New Product Category</h1>
+{% endif %}
+
+<table>
+{# 	Only show the Id Field, if it is > 0. For new Product Categories, don't show the Id.#}
+	<tr>
+		{% if form.vars.value.id > 0 %}
+			<td><label class="labelStyle">Id:</label></td>
+			<td>{{ form_widget(form.id) }}</td>
+	    {% endif %}
+	</tr>
+	
+	<tr>
+		<td><label class="labelStyle">Name:</label></td>
+		<td>{{ form_widget(form.name) }}</td>
+	</tr>
+	
+</table>
+
+<br/>
+
+{{ form_widget(form.save, { 'label': 'Save' }) }}
+
+<a href="{{ path('productscategories_search') }}" class="button">Cancel</a>
+
+{{ form_end(form) }}
+
+{% endblock %}

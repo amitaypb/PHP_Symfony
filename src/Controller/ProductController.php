@@ -294,6 +294,23 @@ class ProductController extends AbstractController
         // See https://symfony.com/doc/current/forms.html#processing-forms
         if ($form->isSubmitted() && $form->isValid()) 
         {
+            $imageFile = $form['image']->getData();
+            
+            if ($imageFile)
+            {               
+                // Get the image and convert into string
+                $img = file_get_contents($imageFile);
+                //$img = file_get_contents($originalFilename);
+                //$img = file_get_contents($form['image']);
+                
+                // Encode the image string data into base64
+                $data = base64_encode($img);
+                //$data = base64_encode($imageFile);
+                //$product->setPhoto($img);
+                $product->setPhoto($data);
+                $product->setRawPhoto($data);
+            }
+            
             $em = $this->getDoctrine()->getManager();
             $em->persist($product);
             $em->flush();

@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerBd0x5aU;
+namespace ContainerVL4vM5C;
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -39,6 +39,7 @@ class App_KernelDevDebugContainer extends Container
         ];
         $this->methodMap = [
             'App\\Controller\\LuckyController' => 'getLuckyControllerService',
+            'App\\Controller\\ProductCategoryController' => 'getProductCategoryControllerService',
             'App\\Controller\\ProductController' => 'getProductControllerService',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\RedirectController' => 'getRedirectControllerService',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\TemplateController' => 'getTemplateControllerService',
@@ -423,6 +424,23 @@ class App_KernelDevDebugContainer extends Container
         $this->services['App\\Controller\\LuckyController'] = $instance = new \App\Controller\LuckyController();
 
         $instance->setContainer(($this->privates['.service_locator.pNNo5z3'] ?? $this->get_ServiceLocator_PNNo5z3Service())->withContext('App\\Controller\\LuckyController', $this));
+
+        return $instance;
+    }
+
+    /**
+     * Gets the public 'App\Controller\ProductCategoryController' shared autowired service.
+     *
+     * @return \App\Controller\ProductCategoryController
+     */
+    protected function getProductCategoryControllerService()
+    {
+        include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\framework-bundle\\Controller\\AbstractController.php';
+        include_once \dirname(__DIR__, 4).'\\src\\Controller\\ProductCategoryController.php';
+
+        $this->services['App\\Controller\\ProductCategoryController'] = $instance = new \App\Controller\ProductCategoryController();
+
+        $instance->setContainer(($this->privates['.service_locator.pNNo5z3'] ?? $this->get_ServiceLocator_PNNo5z3Service())->withContext('App\\Controller\\ProductCategoryController', $this));
 
         return $instance;
     }
@@ -890,8 +908,10 @@ class App_KernelDevDebugContainer extends Container
         $a->setQuoteStrategy(new \Doctrine\ORM\Mapping\DefaultQuoteStrategy());
         $a->setEntityListenerResolver(new \Doctrine\Bundle\DoctrineBundle\Mapping\ContainerEntityListenerResolver($this));
         $a->setRepositoryFactory(new \Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory(new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'App\\Repository\\ProductCategoryRepository' => ['privates', 'App\\Repository\\ProductCategoryRepository', 'getProductCategoryRepositoryService', false],
             'App\\Repository\\ProductRepository' => ['privates', 'App\\Repository\\ProductRepository', 'getProductRepositoryService', false],
         ], [
+            'App\\Repository\\ProductCategoryRepository' => '?',
             'App\\Repository\\ProductRepository' => '?',
         ])));
 
@@ -1704,6 +1724,18 @@ class App_KernelDevDebugContainer extends Container
     }
 
     /**
+     * Gets the private '.errored..service_locator.rTDXyg1.App\Entity\ProductCategory' shared service.
+     *
+     * @return \App\Entity\ProductCategory
+     */
+    protected function getProductCategoryService()
+    {
+        include_once \dirname(__DIR__, 4).'\\src\\Entity\\ProductCategory.php';
+
+        return $this->privates['.errored..service_locator.rTDXyg1.App\\Entity\\ProductCategory'] = new \App\Entity\ProductCategory();
+    }
+
+    /**
      * Gets the private '.errored..service_locator.xXN6XvR.App\Entity\Product' shared service.
      *
      * @return \App\Entity\Product
@@ -1732,17 +1764,19 @@ class App_KernelDevDebugContainer extends Container
     }
 
     /**
-     * Gets the private '.service_locator.mSweomS' shared service.
+     * Gets the private '.service_locator.XRXOapr' shared service.
      *
      * @return \Symfony\Component\DependencyInjection\ServiceLocator
      */
-    protected function get_ServiceLocator_MSweomSService()
+    protected function get_ServiceLocator_XRXOaprService()
     {
-        return $this->privates['.service_locator.mSweomS'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+        return $this->privates['.service_locator.XRXOapr'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'App\\Controller\\ProductCategoryController::edit' => ['privates', '.service_locator.rTDXyg1', 'get_ServiceLocator_RTDXyg1Service', false],
             'App\\Controller\\ProductController::edit' => ['privates', '.service_locator.MKY9DIu', 'get_ServiceLocator_MKY9DIuService', false],
             'App\\Controller\\ProductController::save' => ['privates', '.service_locator.xXN6XvR', 'get_ServiceLocator_XXN6XvRService', false],
             'App\\Controller\\ProductController::save_product_default' => ['privates', '.service_locator.xXN6XvR', 'get_ServiceLocator_XXN6XvRService', false],
         ], [
+            'App\\Controller\\ProductCategoryController::edit' => '?',
             'App\\Controller\\ProductController::edit' => '?',
             'App\\Controller\\ProductController::save' => '?',
             'App\\Controller\\ProductController::save_product_default' => '?',
@@ -1786,6 +1820,20 @@ class App_KernelDevDebugContainer extends Container
     }
 
     /**
+     * Gets the private '.service_locator.rTDXyg1' shared service.
+     *
+     * @return \Symfony\Component\DependencyInjection\ServiceLocator
+     */
+    protected function get_ServiceLocator_RTDXyg1Service()
+    {
+        return $this->privates['.service_locator.rTDXyg1'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'productCategory' => ['privates', '.errored..service_locator.rTDXyg1.App\\Entity\\ProductCategory', NULL, 'Cannot autowire service ".service_locator.rTDXyg1": it references class "App\\Entity\\ProductCategory" but no such service exists.'],
+        ], [
+            'productCategory' => 'App\\Entity\\ProductCategory',
+        ]);
+    }
+
+    /**
      * Gets the private '.service_locator.xXN6XvR' shared service.
      *
      * @return \Symfony\Component\DependencyInjection\ServiceLocator
@@ -1800,6 +1848,20 @@ class App_KernelDevDebugContainer extends Container
     }
 
     /**
+     * Gets the private 'App\Form\ProductCategoryType' shared autowired service.
+     *
+     * @return \App\Form\ProductCategoryType
+     */
+    protected function getProductCategoryTypeService()
+    {
+        include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\form\\FormTypeInterface.php';
+        include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\form\\AbstractType.php';
+        include_once \dirname(__DIR__, 4).'\\src\\Form\\ProductCategoryType.php';
+
+        return $this->privates['App\\Form\\ProductCategoryType'] = new \App\Form\ProductCategoryType();
+    }
+
+    /**
      * Gets the private 'App\Form\ProductType' shared autowired service.
      *
      * @return \App\Form\ProductType
@@ -1811,6 +1873,23 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\src\\Form\\ProductType.php';
 
         return $this->privates['App\\Form\\ProductType'] = new \App\Form\ProductType();
+    }
+
+    /**
+     * Gets the private 'App\Repository\ProductCategoryRepository' shared autowired service.
+     *
+     * @return \App\Repository\ProductCategoryRepository
+     */
+    protected function getProductCategoryRepositoryService()
+    {
+        include_once \dirname(__DIR__, 4).'\\vendor\\doctrine\\persistence\\lib\\Doctrine\\Persistence\\ObjectRepository.php';
+        include_once \dirname(__DIR__, 4).'\\vendor\\doctrine\\collections\\lib\\Doctrine\\Common\\Collections\\Selectable.php';
+        include_once \dirname(__DIR__, 4).'\\vendor\\doctrine\\orm\\lib\\Doctrine\\ORM\\EntityRepository.php';
+        include_once \dirname(__DIR__, 4).'\\vendor\\doctrine\\doctrine-bundle\\Repository\\ServiceEntityRepositoryInterface.php';
+        include_once \dirname(__DIR__, 4).'\\vendor\\doctrine\\doctrine-bundle\\Repository\\ServiceEntityRepository.php';
+        include_once \dirname(__DIR__, 4).'\\src\\Repository\\ProductCategoryRepository.php';
+
+        return $this->privates['App\\Repository\\ProductCategoryRepository'] = new \App\Repository\ProductCategoryRepository(($this->services['doctrine'] ?? $this->getDoctrineService()));
     }
 
     /**
@@ -2234,7 +2313,7 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\console\\Command\\Command.php';
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\form\\Command\\DebugCommand.php';
 
-        $this->privates['console.command.form_debug'] = $instance = new \Symfony\Component\Form\Command\DebugCommand(($this->privates['form.registry'] ?? $this->getForm_RegistryService()), [0 => 'Symfony\\Component\\Form\\Extension\\Core\\Type', 1 => 'App\\Form', 2 => 'Symfony\\Bridge\\Doctrine\\Form\\Type'], [0 => 'App\\Form\\ProductType', 1 => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType', 2 => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType', 3 => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FileType', 4 => 'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType'], [0 => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TransformationFailureExtension', 1 => 'Symfony\\Component\\Form\\Extension\\HttpFoundation\\Type\\FormTypeHttpFoundationExtension', 2 => 'Symfony\\Component\\Form\\Extension\\Validator\\Type\\FormTypeValidatorExtension', 3 => 'Symfony\\Component\\Form\\Extension\\Validator\\Type\\RepeatedTypeValidatorExtension', 4 => 'Symfony\\Component\\Form\\Extension\\Validator\\Type\\SubmitTypeValidatorExtension', 5 => 'Symfony\\Component\\Form\\Extension\\Validator\\Type\\UploadValidatorExtension', 6 => 'Symfony\\Component\\Form\\Extension\\Csrf\\Type\\FormTypeCsrfExtension', 7 => 'Symfony\\Component\\Form\\Extension\\DataCollector\\Type\\DataCollectorTypeExtension'], [0 => 'Symfony\\Component\\Form\\Extension\\Validator\\ValidatorTypeGuesser', 1 => 'Symfony\\Bridge\\Doctrine\\Form\\DoctrineOrmTypeGuesser'], ($this->privates['debug.file_link_formatter'] ?? $this->getDebug_FileLinkFormatterService()));
+        $this->privates['console.command.form_debug'] = $instance = new \Symfony\Component\Form\Command\DebugCommand(($this->privates['form.registry'] ?? $this->getForm_RegistryService()), [0 => 'Symfony\\Component\\Form\\Extension\\Core\\Type', 1 => 'App\\Form', 2 => 'Symfony\\Bridge\\Doctrine\\Form\\Type'], [0 => 'App\\Form\\ProductCategoryType', 1 => 'App\\Form\\ProductType', 2 => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType', 3 => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType', 4 => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\FileType', 5 => 'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType'], [0 => 'Symfony\\Component\\Form\\Extension\\Core\\Type\\TransformationFailureExtension', 1 => 'Symfony\\Component\\Form\\Extension\\HttpFoundation\\Type\\FormTypeHttpFoundationExtension', 2 => 'Symfony\\Component\\Form\\Extension\\Validator\\Type\\FormTypeValidatorExtension', 3 => 'Symfony\\Component\\Form\\Extension\\Validator\\Type\\RepeatedTypeValidatorExtension', 4 => 'Symfony\\Component\\Form\\Extension\\Validator\\Type\\SubmitTypeValidatorExtension', 5 => 'Symfony\\Component\\Form\\Extension\\Validator\\Type\\UploadValidatorExtension', 6 => 'Symfony\\Component\\Form\\Extension\\Csrf\\Type\\FormTypeCsrfExtension', 7 => 'Symfony\\Component\\Form\\Extension\\DataCollector\\Type\\DataCollectorTypeExtension'], [0 => 'Symfony\\Component\\Form\\Extension\\Validator\\ValidatorTypeGuesser', 1 => 'Symfony\\Bridge\\Doctrine\\Form\\DoctrineOrmTypeGuesser'], ($this->privates['debug.file_link_formatter'] ?? $this->getDebug_FileLinkFormatterService()));
 
         $instance->setName('debug:form');
 
@@ -2565,7 +2644,7 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\NotTaggedControllerValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.mSweomS'] ?? $this->get_ServiceLocator_MSweomSService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.XRXOapr'] ?? $this->get_ServiceLocator_XRXOaprService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**
@@ -2607,7 +2686,7 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\ServiceValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.mSweomS'] ?? $this->get_ServiceLocator_MSweomSService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.XRXOapr'] ?? $this->get_ServiceLocator_XRXOaprService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**
@@ -3433,12 +3512,14 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\form\\ResolvedFormTypeFactory.php';
 
         return $this->privates['form.registry'] = new \Symfony\Component\Form\FormRegistry([0 => new \Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension(new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'App\\Form\\ProductCategoryType' => ['privates', 'App\\Form\\ProductCategoryType', 'getProductCategoryTypeService', false],
             'App\\Form\\ProductType' => ['privates', 'App\\Form\\ProductType', 'getProductTypeService', false],
             'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType' => ['privates', 'form.type.entity', 'getForm_Type_EntityService', false],
             'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType' => ['privates', 'form.type.choice', 'getForm_Type_ChoiceService', false],
             'Symfony\\Component\\Form\\Extension\\Core\\Type\\FileType' => ['services', 'form.type.file', 'getForm_Type_FileService', false],
             'Symfony\\Component\\Form\\Extension\\Core\\Type\\FormType' => ['privates', 'form.type.form', 'getForm_Type_FormService', false],
         ], [
+            'App\\Form\\ProductCategoryType' => '?',
             'App\\Form\\ProductType' => '?',
             'Symfony\\Bridge\\Doctrine\\Form\\Type\\EntityType' => '?',
             'Symfony\\Component\\Form\\Extension\\Core\\Type\\ChoiceType' => '?',

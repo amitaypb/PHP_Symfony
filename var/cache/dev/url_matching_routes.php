@@ -14,6 +14,8 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/lucky/number' => [[['_route' => 'app_lucky_number', '_controller' => 'App\\Controller\\LuckyController::number'], null, null, null, false, false, null]],
+        '/productscategories' => [[['_route' => 'productscategories_search', '_controller' => 'App\\Controller\\ProductCategoryController::showProductsCategories'], null, null, null, false, false, null]],
+        '/productcategory/new' => [[['_route' => 'productcategory_create', '_controller' => 'App\\Controller\\ProductCategoryController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/products' => [[['_route' => 'products_show', '_controller' => 'App\\Controller\\ProductController::showProducts'], null, null, null, false, false, null]],
         '/product' => [[['_route' => 'product_create', '_controller' => 'App\\Controller\\ProductController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
     ],
@@ -35,16 +37,19 @@ return [
                     .')'
                 .')'
                 .'|/lucky/number/([^/]++)(*:191)'
-                .'|/product/(?'
-                    .'|([^/]++)(*:219)'
-                    .'|edit/(\\d+)(*:237)'
-                    .'|save(?'
-                        .'|(*:252)'
-                        .'|_product_(?'
-                            .'|default(*:279)'
-                            .'|ajax\\}(*:293)'
+                .'|/product(?'
+                    .'|category/edit/(\\d+)(*:229)'
+                    .'|/(?'
+                        .'|([^/]++)(*:249)'
+                        .'|edit/(\\d+)(*:267)'
+                        .'|save(?'
+                            .'|(*:282)'
+                            .'|_product_(?'
+                                .'|default(*:309)'
+                                .'|ajax\\}(*:323)'
+                            .')'
+                            .'|/(\\d+)(*:338)'
                         .')'
-                        .'|/(\\d+)(*:308)'
                     .')'
                 .')'
             .')/?$}sDu',
@@ -58,12 +63,13 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         191 => [[['_route' => 'app_lucky_print_number', '_controller' => 'App\\Controller\\LuckyController::print_number'], ['number'], null, null, false, true, null]],
-        219 => [[['_route' => 'product_show', '_controller' => 'App\\Controller\\ProductController::show'], ['id'], null, null, false, true, null]],
-        237 => [[['_route' => 'product_edit', '_controller' => 'App\\Controller\\ProductController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
-        252 => [[['_route' => 'product_save', '_controller' => 'App\\Controller\\ProductController::save'], [], null, null, false, false, null]],
-        279 => [[['_route' => 'save_product_default', '_controller' => 'App\\Controller\\ProductController::save_product_default'], [], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        293 => [[['_route' => 'save_product_ajax', '_controller' => 'App\\Controller\\ProductController::save_product_ajax'], [], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        308 => [
+        229 => [[['_route' => 'productcategory_edit', '_controller' => 'App\\Controller\\ProductCategoryController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        249 => [[['_route' => 'product_show', '_controller' => 'App\\Controller\\ProductController::show'], ['id'], null, null, false, true, null]],
+        267 => [[['_route' => 'product_edit', '_controller' => 'App\\Controller\\ProductController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, true, null]],
+        282 => [[['_route' => 'product_save', '_controller' => 'App\\Controller\\ProductController::save'], [], null, null, false, false, null]],
+        309 => [[['_route' => 'save_product_default', '_controller' => 'App\\Controller\\ProductController::save_product_default'], [], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        323 => [[['_route' => 'save_product_ajax', '_controller' => 'App\\Controller\\ProductController::save_product_ajax'], [], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        338 => [
             [['_route' => 'save_product', '_controller' => 'App\\Controller\\ProductController::SaveProduct'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
