@@ -201,23 +201,27 @@ class __TwigTemplate_edc356fcbbee5047448d520994d4525e2ac5c2e663370ad558581b885c3
 \t\t\twidth: 100px; 
 \t\t\ttext-align: center;
 \t\t}
+\t\t
+\t\t.rowStyle {
+\t\t\tpadding-top: 5px;
+\t\t}
       </style>
       
         ";
-        // line 156
+        // line 160
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 157
+        // line 161
         echo "    </head>
     <body>
         ";
-        // line 159
+        // line 163
         $this->displayBlock('body', $context, $blocks);
-        // line 160
+        // line 164
         echo "        
         ";
-        // line 161
+        // line 165
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 162
+        // line 166
         echo "    </body>
 </html>
 ";
@@ -248,7 +252,7 @@ class __TwigTemplate_edc356fcbbee5047448d520994d4525e2ac5c2e663370ad558581b885c3
 
     }
 
-    // line 156
+    // line 160
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -266,7 +270,7 @@ class __TwigTemplate_edc356fcbbee5047448d520994d4525e2ac5c2e663370ad558581b885c3
 
     }
 
-    // line 159
+    // line 163
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -284,7 +288,7 @@ class __TwigTemplate_edc356fcbbee5047448d520994d4525e2ac5c2e663370ad558581b885c3
 
     }
 
-    // line 161
+    // line 165
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -309,7 +313,7 @@ class __TwigTemplate_edc356fcbbee5047448d520994d4525e2ac5c2e663370ad558581b885c3
 
     public function getDebugInfo()
     {
-        return array (  288 => 161,  270 => 159,  252 => 156,  233 => 5,  221 => 162,  219 => 161,  216 => 160,  214 => 159,  210 => 157,  208 => 156,  58 => 8,  53 => 5,  47 => 1,);
+        return array (  292 => 165,  274 => 163,  256 => 160,  237 => 5,  225 => 166,  223 => 165,  220 => 164,  218 => 163,  214 => 161,  212 => 160,  58 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -466,6 +470,10 @@ class __TwigTemplate_edc356fcbbee5047448d520994d4525e2ac5c2e663370ad558581b885c3
 \t\t\tfont-size: 16px;
 \t\t\twidth: 100px; 
 \t\t\ttext-align: center;
+\t\t}
+\t\t
+\t\t.rowStyle {
+\t\t\tpadding-top: 5px;
 \t\t}
       </style>
       

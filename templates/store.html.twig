@@ -1,0 +1,17 @@
+{# templates/product/products.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<h1>Products Categories</h1>
+
+	<select style="width: 180px">
+	
+        {% for p in productsCategories %}
+        	<option name="id">{{ p.name }}</option>
+        	
+    	{% endfor %}
+        
+    </select>
+      
+{% endblock %}

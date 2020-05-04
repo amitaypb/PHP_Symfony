@@ -4,12 +4,18 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
  */
 class Product
 {
+    public function __construct()
+    {
+        $this->categories = new ArrayCollection();
+    }
+    
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -187,6 +193,35 @@ class Product
         }
     
         return $this->base64Image;
+    }
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\ProductCategory", inversedBy="products")
+     */
+    private $category;
+    
+    public function getCategory(): ?ProductCategory
+    {
+        return $this->category;
+    }
+    
+    public function setCategory(?ProductCategory $category): self
+    {
+        $this->category = $category;
+        
+        return $this;
+    }
+    
+    private $categories;
+    
+    public function getCategories()
+    {
+        if($this->categories == null)
+        {
+            $this->categories = new ArrayCollection();
+        }
+        
+        return $this->categories;
     }
     
     // ... getter and setter methods

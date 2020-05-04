@@ -21,22 +21,37 @@
 	</tr>
 	
 	<tr>
-		<td><label class="labelStyle">Name:</label></td>
-		<td>{{ form_widget(form.name) }}</td>
+		<td class="rowStyle"><label class="labelStyle">Name:</label></td>
+		<td class="rowStyle">{{ form_widget(form.name) }}</td>
 	</tr>
 	
 	<tr>
-		<td><label class="labelStyle">Price:</label></td>
-		<td>{{ form_widget(form.price) }}</td>
+		<td class="rowStyle"><label class="labelStyle">Price:</label></td>
+		<td class="rowStyle">{{ form_widget(form.price) }}</td>
 	</tr>
 	
 	<tr>
-		<td><label class="labelStyle">Description:</label></td>
-		<td>{{ form_widget(form.description) }}</td>
+		<td class="rowStyle"><label class="labelStyle">Description:</label></td>
+		<td class="rowStyle">{{ form_widget(form.description) }}</td>
 	</tr>
 	
 	<tr>
-		<td style="padding-top: 5px">
+		<td class="rowStyle"><label class="labelStyle">Category:</label></td>
+		<td class="rowStyle" style="width: 170px">
+		{{ form_widget(form.category) }}
+{#     		<select style="width: 170px">#}
+    	
+{#                 {% for p in form.vars.value.categories %}#}
+{#                 	<option name="id">{{ p.name }}</option>#}
+                	
+{#             	{% endfor %}#}
+            
+{#         	</select>#}
+    	</td>
+	</tr>
+	
+	<tr>
+		<td class="rowStyle">
 		    {% if not form.vars.value.rawPhoto is empty %}
 				<img class="smallImage" src="{{ form.vars.value.base64Image }}"/>
 			{% else %}

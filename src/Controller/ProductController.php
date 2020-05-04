@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\Product;
+use App\Entity\ProductCategory;
 use App\Form\ProductType;
 use App\Service\FileUploader;
 use Doctrine\ORM\EntityManagerInterface;
@@ -112,6 +113,14 @@ class ProductController extends AbstractController
     public function edit(Request $request, Product $product, SluggerInterface $slugger): Response
     {
         //Using Forms.
+//         $repository = $this->getDoctrine()->getRepository(ProductCategory::class);
+//         $productsCategories = $repository->findAll();
+        
+//         foreach($productsCategories as $productCategory)
+//         {
+//             $product->getCategories()->add($productCategory);
+//         }
+        
         $form = $this->createForm(ProductType::class, $product);
         
         $form->handleRequest($request);
@@ -182,6 +191,7 @@ class ProductController extends AbstractController
     
         return $this->render('product/edit_product_form.html.twig', [
             'form' => $form->createView(),
+//             array('attr' => array('categories' => $productsCategories))
         ]);
     }
     

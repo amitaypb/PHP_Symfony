@@ -8,7 +8,7 @@ use App\Entity\ProductCategory;
 use Doctrine\ORM\EntityManagerInterface;
 
 
-class ProductController extends AbstractController
+class StoreController extends AbstractController
 {    
     /**
      * @Route("/store", name="store")
@@ -20,7 +20,7 @@ class ProductController extends AbstractController
         
         return $this->render(
             'store.html.twig',
-            array('productscategories' => $productscategories)
+            array('productsCategories' => $productsCategories)
             );
     }
 }

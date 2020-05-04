@@ -3,10 +3,14 @@
 namespace App\Form;
 
 use App\Entity\Product;
+use App\Entity\ProductCategory;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use App\Form\ProductCategoryType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -38,6 +42,20 @@ class ProductType extends AbstractType
         ->add('name', TextType::class)
         ->add('price', TextType::class)
         ->add('description', TextType::class)
+        ->add('category', EntityType::class, [
+            'class' => ProductCategory::class,
+            'choice_label' => 'name',
+            'placeholder' => 'Select a Category',
+            'attr' => array('style' => 'width:173px'),
+        ])
+//         ->add('productsCategories', $options['attr'])
+        
+//         ->add('productCategories', ProductCategoryType::class, array(
+//             'choice_label'=>'name',
+//             'query_builder'=>function(ProductCategoryRepository $er) {
+//             return $er->findAll();
+//             }))
+            
         //->add('base64Image', TextType::class)
         ->add('image', FileType::class, [
             'label' => 'Image',

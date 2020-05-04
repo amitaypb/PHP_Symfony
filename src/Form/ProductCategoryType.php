@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -65,5 +66,28 @@ class ProductCategoryType extends AbstractType
         $resolver->setDefaults([
             'data_class' => ProductCategory::class,
         ]);
+    }
+    
+    protected function getProductCategories(FormInterface $form, ProductCategory $productCategory)
+    {
+        $form->add('products', Product::class, array(
+            'class'=> 'Entity:Product',
+            'choice_label'=>'posttext',
+            'query_builder'=>function(EntityRepository $er, $owner) {
+            return $er->createQueryBuilder('p')
+            ->join('p.owner', 'o')
+            ->where('o.id = :ownerID')
+            ->setParameter('ownerID', $owner->getID() )
+            ->orderBy('d.postdate','ASC');
+            }));
+    }
+    
+    public function onPreSetData(FormEvent $event)
+    {
+        /** @var ProductCategory productCategory */
+        $productCategory = $event->getData();
+        $form = $event->getForm();
+        
+        $this->getProductCategories($form, $productCategory);
     }
 }

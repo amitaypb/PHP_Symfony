@@ -28,4 +28,5 @@ return [
     'save_product_ajax' => [[], ['_controller' => 'App\\Controller\\ProductController::save_product_ajax'], [], [['text', '/product/save_product_ajax}']], [], []],
     'product_create' => [[], ['_controller' => 'App\\Controller\\ProductController::new'], [], [['text', '/product']], [], []],
     'save_product' => [['id'], ['_controller' => 'App\\Controller\\ProductController::SaveProduct'], ['id' => '\\d+'], [['variable', '/', '\\d+', 'id', true], ['text', '/product/save']], [], []],
+    'store' => [[], ['_controller' => 'App\\Controller\\StoreController::startpage'], [], [['text', '/store']], [], []],
 ];

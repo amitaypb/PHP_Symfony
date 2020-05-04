@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Entity;
+//use App\Entity\Product;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,6 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class ProductCategory
 {
+    public function __construct()
+    {
+        $this->products = new ArrayCollection();
+    }
+    
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -44,5 +52,18 @@ class ProductCategory
         $this->name = $name;
 
         return $this;
+    }
+    
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Product", mappedBy="category")
+     */
+    private $products;
+    
+    /**
+     * @return Collection|Product[]
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
     }
 }
