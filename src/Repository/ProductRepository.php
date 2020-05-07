@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Product;
+use App\Entity\ProductCategory;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 
@@ -23,6 +24,34 @@ class ProductRepository extends ServiceEntityRepository
     public function findAll()
     {
         return $this->findBy(array(), array('id' => 'ASC'));
+    }
+    
+    /**
+     * @return Product[]
+     */
+    public function getProductsByCategory(ProductCategory $category)
+    {
+        if($category == null)
+        {
+            return findAll();
+        }
+        
+        return getProductsByCategoryId($category->getId());
+    }
+    
+    /**
+     * @return Product[]
+     */
+    public function getProductsByCategoryId(int $categoryId)
+    {
+        return $this->createQueryBuilder('u')
+        ->join('u.category', 'o')
+        ->where('o.id = :categoryID')
+        ->setParameter('categoryID', $categoryId )
+        ->orderBy('u.name', 'ASC')
+        ->getQuery()
+        ->getResult();
+        //->execute();
     }
     
     // /**

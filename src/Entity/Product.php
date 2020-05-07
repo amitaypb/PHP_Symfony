@@ -13,7 +13,6 @@ class Product
 {
     public function __construct()
     {
-        $this->categories = new ArrayCollection();
     }
     
     /**
@@ -210,18 +209,6 @@ class Product
         $this->category = $category;
         
         return $this;
-    }
-    
-    private $categories;
-    
-    public function getCategories()
-    {
-        if($this->categories == null)
-        {
-            $this->categories = new ArrayCollection();
-        }
-        
-        return $this->categories;
     }
     
     // ... getter and setter methods

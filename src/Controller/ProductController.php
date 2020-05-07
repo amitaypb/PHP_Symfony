@@ -113,13 +113,6 @@ class ProductController extends AbstractController
     public function edit(Request $request, Product $product, SluggerInterface $slugger): Response
     {
         //Using Forms.
-//         $repository = $this->getDoctrine()->getRepository(ProductCategory::class);
-//         $productsCategories = $repository->findAll();
-        
-//         foreach($productsCategories as $productCategory)
-//         {
-//             $product->getCategories()->add($productCategory);
-//         }
         
         $form = $this->createForm(ProductType::class, $product);
         

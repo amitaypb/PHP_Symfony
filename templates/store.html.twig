@@ -1,17 +1,49 @@
 {# templates/product/products.html.twig #}
 {% extends 'base.html.twig' %}
 
+{% block javascripts %}
+    {{ parent() }}
+    
+    <script src="{{ asset('store_admin.js') }}"></script>
+{# <script src="public/store_admin.js"></script>#}
+{# 	<script src="../assets/js/store_admin.js"></script>#}
+{% endblock %}
+
 {% block body %}
 
-	<h1>Products Categories</h1>
+{{ form_start(form) }}
 
-	<select style="width: 180px">
+{# 	<h1>Products Categories</h1>#}
+
+{# 	<select style="width: 180px">#}
 	
-        {% for p in productsCategories %}
-        	<option name="id">{{ p.name }}</option>
+{#         {% for p in productsCategories %}#}
+{#         	<option name="id">{{ p.name }}</option>#}
         	
-    	{% endfor %}
+{#     	{% endfor %}#}
         
-    </select>
+{#     </select>#}
+
+
+<div class="js-product-categories-target">
+<table>
+    <tr>
+    		<td class="rowStyle"><label class="labelStyle">Category:</label></td>
+    		<td class="rowStyle" style="width: 170px">
+    		{{ form_widget(form.category, 
+        		{ 
+                    attr: 
+                    {
+                        'data-specific-location-url': path('product_categories_select'),
+                        'class': 'js-store-form-location'
+                    }
+                }) 
+    		}}
+        	</td>
+    	</tr>
+</table>
+</div>
+
+{{ form_end(form) }}
       
 {% endblock %}

@@ -19,6 +19,7 @@ return [
         '/products' => [[['_route' => 'products_show', '_controller' => 'App\\Controller\\ProductController::showProducts'], null, null, null, false, false, null]],
         '/product' => [[['_route' => 'product_create', '_controller' => 'App\\Controller\\ProductController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/store' => [[['_route' => 'store', '_controller' => 'App\\Controller\\StoreController::startpage'], null, null, null, false, false, null]],
+        '/store/product-categories-select' => [[['_route' => 'product_categories_select', '_controller' => 'App\\Controller\\StoreController::getProductCategories'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'

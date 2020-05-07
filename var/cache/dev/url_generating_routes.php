@@ -29,4 +29,5 @@ return [
     'product_create' => [[], ['_controller' => 'App\\Controller\\ProductController::new'], [], [['text', '/product']], [], []],
     'save_product' => [['id'], ['_controller' => 'App\\Controller\\ProductController::SaveProduct'], ['id' => '\\d+'], [['variable', '/', '\\d+', 'id', true], ['text', '/product/save']], [], []],
     'store' => [[], ['_controller' => 'App\\Controller\\StoreController::startpage'], [], [['text', '/store']], [], []],
+    'product_categories_select' => [[], ['_controller' => 'App\\Controller\\StoreController::getProductCategories'], [], [['text', '/store/product-categories-select']], [], []],
 ];

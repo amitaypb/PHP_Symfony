@@ -9,6 +9,7 @@ const $ = require('jquery');
 + global.$ = global.jQuery = $;
 
 require('jquery-3.5.0.min.js');
+require('store_admin.js');
 require('../css/app.css');
 
 console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
